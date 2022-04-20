@@ -12,7 +12,7 @@ function OnOff(props: PropsType) {
     /*   //variables
        let on = false*/
 
-    //hook
+    //hook with init value
     let [on, setOn] = useState(false);
 
     // styles
