@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
+  //  value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-export function Rating(props: RatingPropsType) {
+export function UncontrolledRating(props: RatingPropsType) {
     console.log('UncontrolledRating rendering')
+let [value, setValue] = useState(0)
+
 
 /*    if (props.value === 1) {
         return (
@@ -69,11 +71,12 @@ export function Rating(props: RatingPropsType) {
     }*/
     return (
         <div>
-            <Star selected={props.value > 0}/><button>1</button>
-            <Star selected={props.value > 1}/><button>2</button>
-            <Star selected={props.value > 2}/><button>3</button>
-            <Star selected={props.value > 3}/><button>4</button>
-            <Star selected={props.value > 4}/><button>5</button>
+            <Star selected={value > 0}/><button onClick={()=> {setValue( 1)}}>1</button>
+            <Star selected={value > 1}/><button onClick={()=> {setValue( 2)}}>2</button>
+            <Star selected={value > 2}/><button onClick={()=> {setValue( 3)}}>3</button>
+            <Star selected={value > 3}/><button onClick={()=> {setValue( 4)}}>4</button>
+            <Star selected={value > 4}/><button onClick={()=> {setValue( 5)}}>5</button>
+
         </div>
     )
 }

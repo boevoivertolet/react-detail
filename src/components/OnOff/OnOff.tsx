@@ -8,14 +8,11 @@ type PropsType = {
 
 // component
 function OnOff(props: PropsType) {
-
-    /*   //variables
-       let on = false*/
-
     //hook with init value
     let [on, setOn] = useState(false);
+    console.log("on: "+ on)
 
-    // styles
+// styles
     const onStyle = {
         width: '40px',
         height: '20px',
@@ -43,6 +40,10 @@ function OnOff(props: PropsType) {
         backgroundColor: on ? 'green' : 'red'
 
     }
+    /*   //variables
+       let on = false*/
+
+
 
 
     return <div>

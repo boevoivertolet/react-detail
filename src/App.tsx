@@ -2,34 +2,34 @@ import React from 'react';
 import './App.css';
 import OnOff from './components/OnOff/OnOff';
 import Accordion from './components/Accordion/Accordion';
+
+import UncontrolledAccordion from './components/UncolntrolledAccordion/UncontrolledAccordion';
 import {Rating} from './components/Rating/Rating';
-
-
+import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 
 
 function App() {
 
     return (
-        <>
+        <div className='App'>
+
             <Accordion titleValue={'Menu'} collapsed={true}/>
             <Accordion titleValue={'Menu'} collapsed={false}/>
-            <PageTitle title = {'this is  APP component'}/>
-            <PageTitle title = {'My friends'}/>
-            <Rating value ={0}/>
-            <Rating value ={1}/>
-            <Rating value ={2}/>
-            <Rating value ={3}/>
-            <Rating value ={4}/>
-            <Rating value ={5}/>
+
+            <PageTitle title={'this is  APP component'}/>
+            <PageTitle title={'My friends'}/>
+
+            <Rating value={0}/>
+
+            <hr/>
 
             <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
+            <UncontrolledAccordion titleValue={'menu'} />
+            <UncontrolledRating/>
 
 
 
-        </>
+        </div>
 
     )
 
