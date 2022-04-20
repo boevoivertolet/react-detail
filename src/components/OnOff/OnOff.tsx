@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 type PropsType = {
@@ -9,8 +9,11 @@ type PropsType = {
 // component
 function OnOff(props: PropsType) {
 
-    //variables
-    let on = false
+    /*   //variables
+       let on = false*/
+
+    //hook
+    let [on, setOn] = useState(false);
 
     // styles
     const onStyle = {
@@ -44,11 +47,11 @@ function OnOff(props: PropsType) {
 
     return <div>
         <div style={onStyle} onClick={() => {
-            on = true;
+            setOn(true)
         }}>On
         </div>
         <div style={offStyle} onClick={() => {
-            on = false
+            setOn(false)
         }}>Off
         </div>
         <div style={indicatorStyle}></div>
