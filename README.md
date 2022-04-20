@@ -1,1 +1,1 @@
-clean SPA for microtasks
+React kabzda kak podrobno
