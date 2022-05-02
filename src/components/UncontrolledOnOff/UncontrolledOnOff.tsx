@@ -51,7 +51,7 @@ function UncontrolledOnOff(props: PropsType) {
     }
     const offClicked = () => {
         {
-            setOn(true)
+            setOn(false)
             props.onChange(false)
         }
 
