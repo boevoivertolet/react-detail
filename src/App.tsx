@@ -17,11 +17,13 @@ function App() {
     return (
         <div className='App'>
 
-            <Accordion titleValue={'Menu'}
+                <OnOff on={true} onChange={(on)=>{alert(on)}}/>
+
+        {/*    <Accordion titleValue={'Menu'}
                        collapsed={accordionCollapsed}
                         onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}}
             />
-
+*/}
 {/*
 
             <PageTitle title={'this is  APP component'}/>
@@ -31,7 +33,7 @@ function App() {
 
             <hr/>
 
-            <OnOff/>
+            <UncontrolledOnOff/>
             <UncontrolledAccordion titleValue={'menu'} />
             <UncontrolledRating/>
 
