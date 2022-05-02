@@ -12,12 +12,17 @@ import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRa
 
 function App() {
     let[ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let[accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
 
     return (
         <div className='App'>
 
-            <Accordion titleValue={'Menu'} collapsed={true}/>
-            <Accordion titleValue={'Menu'} collapsed={false}/>
+            <Accordion titleValue={'Menu'}
+                       collapsed={accordionCollapsed}
+                        onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}}
+            />
+
+{/*
 
             <PageTitle title={'this is  APP component'}/>
             <PageTitle title={'My friends'}/>
@@ -30,6 +35,7 @@ function App() {
             <UncontrolledAccordion titleValue={'menu'} />
             <UncontrolledRating/>
 
+*/}
 
 
         </div>
