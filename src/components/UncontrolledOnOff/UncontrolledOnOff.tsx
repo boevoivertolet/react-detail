@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 type PropsType = {
-    onChange: (on: boolean)=> void
+    onChange: (on: boolean) => void
 }
 
 
@@ -10,7 +10,7 @@ type PropsType = {
 function UncontrolledOnOff(props: PropsType) {
     //hook with init value
     let [on, setOn] = useState(false);
-    console.log("on: "+ on)
+    console.log('on: ' + on)
 
 // styles
     const onStyle = {
@@ -42,20 +42,26 @@ function UncontrolledOnOff(props: PropsType) {
     }
     /*   //variables
        let on = false*/
+    const onClicked = () => {
+        {
+            setOn(true)
+            props.onChange(true)
+        }
 
+    }
+    const offClicked = () => {
+        {
+            setOn(true)
+            props.onChange(false)
+        }
 
+    }
 
 
     return <div>
-        <div style={onStyle} onClick={() => {
-            setOn(true)
-            props.onChange(true)
-        }}>On
+        <div style={onStyle} onClick={onClicked}>On
         </div>
-        <div style={offStyle} onClick={() => {
-            setOn(false)
-            props.onChange(false)
-        }}>Off
+        <div style={offStyle} onClick={offClicked}>Off
         </div>
         <div style={indicatorStyle}></div>
     </div>
