@@ -22,7 +22,7 @@ function App() {
             <PageTitle title={'this is  APP component'}/>
             <PageTitle title={'My friends'}/>
 
-            <Rating value={ratingValue}/>
+            <Rating value={ratingValue} onClick ={setRatingValue}/>
 
             <hr/>
 
