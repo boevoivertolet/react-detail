@@ -5,6 +5,7 @@ import Accordion from './components/Accordion/Accordion';
 import UncontrolledAccordion from './components/UncolntrolledAccordion/UncontrolledAccordion';
 import {Rating, RatingValueType} from './components/Rating/Rating';
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
+import UncontrolledOnOff from './components/UncontrolledOnOff/UncontrolledOnOff';
 
 
 
@@ -18,7 +19,8 @@ function App() {
     return (
         <div className='App'>
 
-                <OnOff on={switchOn} onChange={(on)=>{setSwitchOn(on)}}/>
+               {/* <OnOff on={switchOn} onChange={setSwitchOn}/>*/}
+                <UncontrolledOnOff onChange={setSwitchOn} />{switchOn.toString()}
 
         {/*    <Accordion titleValue={'Menu'}
                        collapsed={accordionCollapsed}
