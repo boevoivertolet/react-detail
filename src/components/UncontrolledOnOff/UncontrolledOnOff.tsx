@@ -7,7 +7,7 @@ type PropsType = {
 
 
 // component
-function UncontrolledOnOff(props: PropsType) {
+export function UncontrolledOnOff(props: PropsType) {
     //hook with init value
     let [on, setOn] = useState(false);
     console.log('on: ' + on)
@@ -68,7 +68,7 @@ function UncontrolledOnOff(props: PropsType) {
 }
 
 
-export default UncontrolledOnOff;
+
 
 
 

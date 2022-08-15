@@ -8,7 +8,7 @@ type PropsType = {
 
 
 // component
-function OnOff(props: PropsType) {
+export function OnOff(props: PropsType) {
     //hook with init value
     let [on, setOn] = useState(false);
     console.log("on: "+ props.on)
@@ -61,7 +61,7 @@ function OnOff(props: PropsType) {
 }
 
 
-export default OnOff;
+
 
 
 
