@@ -6,7 +6,7 @@ import {UncontrolledAccordion} from './UncontrolledAccordion';
 
 
 export default {
-    title: 'Example/UncontrolledAccordion',
+    title: 'UncontrolledAccordion',
     component: UncontrolledAccordion,
 
     argTypes: {

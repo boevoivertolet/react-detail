@@ -6,7 +6,7 @@ import {Rating} from './Rating';
 
 
 export default {
-    title: 'Example/Rating',
+    title: 'Rating',
     component: Rating,
 
     argTypes: {

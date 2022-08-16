@@ -6,7 +6,7 @@ import {UncontrolledOnOff} from './UncontrolledOnOff';
 
 
 export default {
-    title: 'Example/UncontrolledOnOff',
+    title: 'UncontrolledOnOff',
     component: UncontrolledOnOff,
 
     argTypes: {

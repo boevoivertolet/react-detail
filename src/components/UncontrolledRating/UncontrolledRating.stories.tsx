@@ -6,7 +6,7 @@ import {UncontrolledRating} from './UncontrolledRating';
 
 
 export default {
-    title: 'Example/UncontrolledRating',
+    title: 'UncontrolledRating',
     component: UncontrolledRating,
 
     argTypes: {
