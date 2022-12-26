@@ -62,12 +62,12 @@ export const HelpsToReactMemo = () => {
     console.log('HelpsToReactMemo')
     const [counter, setCounter] = useState(0)
     const [users, setUsers] = useState(['Sasha', 'Ulya', 'Taras'])
-    const newArray = useMemo(()=> {
-         return users.filter(u => u.toLowerCase().indexOf('a') > -1)
-    },[users])
+    const newArray = useMemo(() => {
+        return users.filter(u => u.toLowerCase().indexOf('a') > -1)
+    }, [users])
 
-    const addUser =()=> {
-        const newUsers = [...users, 'Sveta' + new Date().getTime()  ]
+    const addUser = () => {
+        const newUsers = [...users, 'Sveta' + new Date().getTime()]
         setUsers(newUsers)
     }
 
@@ -79,3 +79,36 @@ export const HelpsToReactMemo = () => {
         <Users users={newArray}/>
     </>
 }
+export const LikeUseCallback = () => {
+    console.log('LikeUseCallback')
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(['React', 'JS', 'Redux'])
+    const newArray = useMemo(() => {
+        return books.filter(b => b.toLowerCase().indexOf('a') > -1)
+    }, [books])
+
+    const addBook = () => {
+        const newBook = [...books, 'Angular' + new Date().getTime()]
+        setBooks(newBook)
+    }
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+
+
+        {counter}
+        <Book books={newArray} addBook={addBook}/>
+    </>
+}
+
+const BooksSecret = (props: { addBook: () => void, books: Array<string> }) => {
+    console.log('UsersSecret')
+    return <div>
+        <button onClick={() => props.addBook()}>add book</button>
+        {
+            props.books.map((b, i) => <div key={i}>{b}</div>)
+        }</div>
+}
+
+
+const Book = React.memo(BooksSecret);
