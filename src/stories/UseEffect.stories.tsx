@@ -44,12 +44,17 @@ export const SetTimeoutExample = () => {
 
     console.log('SetTimeoutExample')
 
+    /* useEffect(() => {
+         console.log('tik: ' + counter)
+         /!*setTimeout(() => {
+             console.log('setTimeout')
+             document.title = counter.toString()
+         }, 5000)*!/
+         setInterval(() => {
+             setCounter((state) => state + 1)
+         }, 1000)
+     }, [])*/
     useEffect(() => {
-        console.log('tik: ' + counter)
-        /*setTimeout(() => {
-            console.log('setTimeout')
-            document.title = counter.toString()
-        }, 5000)*/
         setInterval(() => {
             setCounter((state) => state + 1)
         }, 1000)
@@ -61,5 +66,38 @@ export const SetTimeoutExample = () => {
 
         counter:{counter}
 
+    </>
+}
+export const Timer = () => {
+
+    const getTime = () => {
+        return new Date()
+    }
+
+
+    const [hour, setHour] = useState(getTime().getHours())
+    const [min, setMin] = useState(getTime().getMinutes())
+    const [sec, setSec] = useState(getTime().getSeconds())
+
+
+    console.log('SetTimeoutExample')
+
+
+    useEffect(() => {
+        setInterval(() => {
+            setSec(getTime().getSeconds() + 1)
+            if (getTime().getSeconds() === 59) {
+                setMin(getTime().getMinutes() + 1)
+                if (getTime().getMinutes() === 59) {
+                    setHour(getTime().getHours() + 1)
+                }
+            }
+        }, 1000)
+    }, [sec, min, hour])
+
+
+    return <>
+        time:
+        {hour < 10 ? '0' + hour : hour ? hour === 24 ? '00' : hour : hour}:{min < 10 ? '0' + min : min ? min === 60 ? '00' : min : min}:{sec < 10 ? '0' + sec : sec ? sec === 60 ? '00' : sec : sec}
     </>
 }
