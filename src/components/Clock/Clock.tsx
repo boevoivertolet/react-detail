@@ -1,11 +1,37 @@
 import React, {useEffect, useState} from 'react';
+import '../../App.css'
+import {DigitalClockView} from './DigitalClockView';
+import {AnalogClockView} from './AnalogClockView';
 
 
-const getString = (number: number) => number < 10 ? '0' + number : number
+export const getString = (number: number) => number < 10 ? '0' + number : number
 
 export const Clock: React.FC<PropsType> = (props) => {
 
+    /* const hoursArrow = document.querySelector('hours')
+     const minutesArrow = document.querySelector('minutes')
+     const secondsArrow = document.querySelector('seconds')
+     const deg = 6
+
+     setInterval(() => {
+         const hours = date.getHours() * 30
+         const minutes = date.getMinutes() * deg
+         const seconds = date.getSeconds() * deg
+
+         if (hoursArrow) {
+             hoursArrow.style.transform = `rotateZ(${hours + (minutes / 12)}deg)`
+         }
+
+
+         minutesArrow.style.transform = `rotateZ(${(minutes)}deg)`
+
+         secondsArrow.style.transform = `rotateZ(${(seconds)}deg)`
+
+     }, 0)*/
+
+
     const [date, setDate] = useState(new Date())
+
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -17,21 +43,66 @@ export const Clock: React.FC<PropsType> = (props) => {
         }
     }, [date])
 
+    let view;
 
-    const secondsString = getString(date.getSeconds())
-    const minString = getString(date.getMinutes())
-    const hoursString = getString(date.getHours())
+    switch (props.mod) {
+        case 'analog':
+            view = /*<div className="clock">
+                <div className="hour">
+                    <div className="hours"></div>
+                </div>
+                <div className="minute">
+                    <div className="minutes"></div>
+                </div>
+                <div className="second">
+                    <div className="seconds"></div>
+                </div>
+            </div>*/ <AnalogClockView date={date}/>
+            break;
+        case 'digital':
+        default:
+            view = /*  <div className="digitalClock">
+                    <span className="section">{hoursString}</span>
+
+                    <span className="section">{minString}</span>
+
+                    <span className="section">{secondsString}</span>
+                </div>*/ <DigitalClockView date={date}/>
 
 
-    return <div>
+    }
 
 
-        <span>{hoursString}</span>
-        :
-        <span>{minString}</span>
-        :
-        <span>{secondsString}</span>
+    return <div className={'clockDisplay'}>
+
+        {/*{props.mod === 'digital'
+            ? <div className="digitalClock">
+                <span className="section">{hoursString}</span>
+
+                <span className="section">{minString}</span>
+
+                <span className="section">{secondsString}</span>
+            </div>
+            : <div className="clock">
+                <div className="hour">
+                    <div className="hours"></div>
+                </div>
+                <div className="minute">
+                    <div className="minutes"></div>
+                </div>
+                <div className="second">
+                    <div className="seconds"></div>
+                </div>
+            </div>
+        }*/}
+        {view}
+
     </div>
 }
 
-type PropsType = {}
+type PropsType = {
+    mod?: 'digital' | 'analog'
+}
+export type ClockViewPropsType = {
+    date: Date
+}

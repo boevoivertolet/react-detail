@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {action} from '@storybook/addon-actions';
+
 import {Clock} from './Clock';
 
 
@@ -8,8 +8,11 @@ export default {
     component: Clock,
 }
 
-export const BaseExample = () => {
-    return <Clock/>
+export const BaseDigitalExample = () => {
+    return <Clock mod={"digital"}/>
+}
+export const BaseAnalogExample = () => {
+    return <Clock mod={"analog"}/>
 }
 
 
